@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router';
-import { useIntl } from 'react-intl';
+import { useRouter } from "next/router";
+import { useIntl } from "react-intl";
 
-export default function IndexPage(props) {
+export default function AltPage() {
   const { formatMessage } = useIntl();
   const f = (id) => formatMessage({ id });
   const router = useRouter();
 
   return (
     <div>
-      <h1>{f('hello')}</h1>
+      <h1>{f("hello")}</h1>
     </div>
   );
 }

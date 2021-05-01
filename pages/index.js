@@ -1,16 +1,13 @@
-import { useRouter } from 'next/router';
-import { useIntl } from 'react-intl';
+import { useRouter } from "next/router";
+import { Heading } from "../components/Heading";
 
-export default function IndexPage(props) {
-  const { formatMessage } = useIntl();
-  const f = (id) => formatMessage({ id });
+export default function IndexPage() {
   const router = useRouter();
   const { locale, locales, defaultLocale } = router;
 
   return (
     <div>
-      <h1>{f('hello')}</h1>
-      <p>{f('welcomeMessage')}</p>
+      <Heading />
       <br />
       <p>Current locale: {locale}</p>
       <p>Default locale: {defaultLocale}</p>
