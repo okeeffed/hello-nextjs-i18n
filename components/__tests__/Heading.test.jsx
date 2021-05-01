@@ -1,0 +1,1 @@
+describe("internationalised content", () => {});
