@@ -1,3 +1,4 @@
+import React from "react";
 import { useIntl } from "../hooks/useIntl";
 
 export function Heading() {

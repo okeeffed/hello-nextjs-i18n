@@ -1,10 +1,14 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import { useRouter } from "next/router";
-import * as locales from "../content/locale";
+import * as locales from "content/locale";
 
-const AllTheProviders = ({ children, locale = "en", pathname = "/" }) => {
+const AllTheProviders = ({
+  children,
+  defaultLocale = "en",
+  locale = "en",
+  pathname = "/",
+}) => {
   const localeCopy = locales[locale];
   const messages = localeCopy[pathname];
 
@@ -19,8 +23,11 @@ const AllTheProviders = ({ children, locale = "en", pathname = "/" }) => {
   );
 };
 
-const customRender = (ui, options) =>
-  render(ui, { wrapper: AllTheProviders, ...options });
+const customRender = (ui, { wrapperProps, ...options } = {}) =>
+  render(ui, {
+    wrapper: (props) => <AllTheProviders {...props} {...wrapperProps} />,
+    ...options,
+  });
 
 // re-export everything
 export * from "@testing-library/react";
